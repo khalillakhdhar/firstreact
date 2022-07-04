@@ -1,25 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Call from './Call';
+class App extends React.Component {
+constructor()
+{
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // initialisation
+  super();
+  this.state={
+    //variable
+    nom:"Abdelslam",
+    age:23,
+  };
+this.changeName=this.changeName.bind(this);
 }
+ changeme= ()=>{
+this.setState({
+  nom:"khalil"
+})
 
+}
+changeName()
+{
+  this.setState({age:this.state.age+1})
+}
+render()
+{
+  return(
+    <>
+    <h1>Hello {this.state.nom}</h1>
+    <button onClick={this.changeme}>increase my age</button>
+    <button onClick={this.changeme}>change my name</button>
+    <br></br>
+    <Call age={this.state.age}></Call>
+    </>
+  )
+};
+}
 export default App;
+
+
+
+
+
+
+
+
